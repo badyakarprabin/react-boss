@@ -1,9 +1,9 @@
 project_name: react-boss
 project_description: 'Boss implementation in react app'
-repository_url: ''
-branch_url: '{repository_url}/tree/{branch}'
-user: app
-port: 2073
+repository_url: 'https://github.com/badyakarprabin/react-boss'
+branch_url: 'https://github.com/badyakarprabin/react-boss/tree/master'
+user: #The user used to access the servers through SSH.
+port: #The port used to access the servers through SSH.
 deployment:
   web:
     build_dir: build/
@@ -12,8 +12,8 @@ deployment:
 
 stages:
   dev:
-    host: dev.superlending.lftechnology.com
-    public_url: 'https://127.0.0.1:4000'
+    host: #Address of the hosted server for the defined stage.
+    public_url: #The public url to access this website.
     logging:
       files:
         - /source/app/logs/access.log
@@ -23,14 +23,14 @@ scripts:
   install: 'yarn'
   build: 'yarn build'
 
-# notifications:
-  # slack:
-  #   enabled: true
-  #   endpoint: ${BOSS_SLACK_ENDPOINT}
+notifications:
+  slack:
+    enabled: true
+    endpoint: ${BOSS_SLACK_ENDPOINT}
 
-  # hipchat:
-  #   enabled: true
-  #   notify: true
-  #   company_name: ${BOSS_HIPCHAT_COMPANY}
-  #   room_id: ${BOSS_HIPCHAT_ROOM}
-  #   auth_token: ${BOSS_HIPCHAT_TOKEN}
+  hipchat:
+    enabled: true
+    notify: true
+    company_name: ${BOSS_HIPCHAT_COMPANY}
+    room_id: ${BOSS_HIPCHAT_ROOM}
+    auth_token: ${BOSS_HIPCHAT_TOKEN}
