@@ -1,0 +1,36 @@
+project_name: react-boss
+project_description: 'Boss implementation in react app'
+repository_url: ''
+branch_url: '{repository_url}/tree/{branch}'
+user: app
+port: 2073
+deployment:
+  web:
+    build_dir: build/
+    base_dir: /source/app/deployment/frontend
+    keep_builds: 10
+
+stages:
+  dev:
+    host: dev.superlending.lftechnology.com
+    public_url: 'https://127.0.0.1:4000'
+    logging:
+      files:
+        - /source/app/logs/access.log
+        - /source/app/logs/error.log
+
+scripts:
+  install: 'yarn'
+  build: 'yarn build'
+
+# notifications:
+  # slack:
+  #   enabled: true
+  #   endpoint: ${BOSS_SLACK_ENDPOINT}
+
+  # hipchat:
+  #   enabled: true
+  #   notify: true
+  #   company_name: ${BOSS_HIPCHAT_COMPANY}
+  #   room_id: ${BOSS_HIPCHAT_ROOM}
+  #   auth_token: ${BOSS_HIPCHAT_TOKEN}
